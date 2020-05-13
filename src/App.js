@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { Switch, Link } from "react-router-dom"
+import "./App.css"
+
+import PublicRoute from "./router/PublicRoute"
+import routes from "./router"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul>
+        <li>
+          <Link to="/home">home</Link>
+        </li>
+        <li>
+          <Link to="/product">product</Link>
+        </li>
+      </ul>
+      <Switch>
+        {routes.map((route, i) => (
+          <PublicRoute key={i} {...route} />
+        ))}
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
