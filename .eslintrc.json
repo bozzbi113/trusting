@@ -3,7 +3,8 @@
   "env": {
     "browser": true,
     "jest": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
   "plugins": [],
   "extends": [
@@ -20,7 +21,7 @@
   },
   "rules": {
     "prettier/prettier": ["error"],
-    "no-console": "warn",
+    "no-console": 1,
     "no-eval": "error"
   }
 }
