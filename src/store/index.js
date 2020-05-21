@@ -1,12 +1,16 @@
-import { createStore } from "redux"
+import { createStore, applyMiddleware } from "redux"
 import rootReducer from "./rootReducer"
 import { composeWithDevTools } from "redux-devtools-extension"
-const middleware = (history) => {
-  if (process.env.NODE_ENV === "development") {
-    return composeWithDevTools()
-  }
+import createSagaMiddleware from "redux-saga"
+import rootSaga from "./rootSaga"
+const sagaMiddleware = createSagaMiddleware()
+const middleware = () => {
+  return composeWithDevTools(applyMiddleware(sagaMiddleware))
 }
 
 export default function configureStore() {
-  return createStore(rootReducer(), {}, middleware())
+  const store = createStore(rootReducer(), {}, middleware())
+  store.runSaga = sagaMiddleware.run
+  store.runSaga(rootSaga)
+  return store
 }

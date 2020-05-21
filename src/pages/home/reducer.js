@@ -1,9 +1,10 @@
 import produce from "immer"
+import { INCREMENT_TEST } from "./constant"
 
 const homeReducer = (state = { test: 1 }, action) =>
   produce(state, (draft) => {
     switch (action.type) {
-      case "GET_COMPANIES_SUCCESS":
+      case INCREMENT_TEST:
         return draft
       default:
         return draft

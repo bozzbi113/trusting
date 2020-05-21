@@ -7,11 +7,16 @@ import { Provider } from "react-redux"
 import configureStore from "./store"
 import { BrowserRouter } from "react-router-dom"
 import "./assets/main.css"
+import "./assets/styles/style.scss"
+import "./assets/styles/normalize.css"
+import ErrorBoundary from "./components/ErrorBoundary"
 const store = configureStore()
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")

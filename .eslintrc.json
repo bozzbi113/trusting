@@ -12,16 +12,20 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
+  "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2018,
+    "allowImportExportEverywhere": true,
     "ecmaFeatures": {
       "jsx": true
     }
   },
   "rules": {
     "prettier/prettier": ["error"],
-    "no-console": "error",
-    "no-eval": "error"
+    "no-console": "warn",
+    "no-eval": "error",
+    "react/prop-types": 0 ,
+    "react/display-name": 0
   }
 }

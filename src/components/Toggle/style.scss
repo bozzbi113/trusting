@@ -1,0 +1,29 @@
+@import "../../assets/styles/variables";
+.toggle-wrapper {
+  width: 50px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  background: $black-1;
+  cursor: pointer;
+  position: relative;
+  img {
+    position: absolute;
+  }
+  img:nth-child(2) {
+    left: 5px;
+  }
+  img:nth-child(3) {
+    right: 5px;
+  }
+  &__toggle {
+    z-index: 100;
+  }
+  &--dark {
+    left: 0;
+  }
+  &--light {
+    right: 0;
+  }
+}

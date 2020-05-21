@@ -7,7 +7,6 @@ function withAuthRoute(getToken, pathname) {
       <Route
         {...rest}
         render={(props) => {
-          console.log('===test', props)
           if (getToken()) {
             return <Component {...props} routes={routes} />
           }
